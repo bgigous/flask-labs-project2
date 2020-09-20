@@ -6,6 +6,7 @@ db = SQLAlchemy(app)
 
 
 class User(db.Model):
+    __tablename__ = 'users'
     uid = db.Column(db.Integer, primary_key=True, autoincrement=True)
     firstname = db.Column(db.String(50))
     lastname = db.Column(db.String(50))
@@ -22,11 +23,12 @@ class User(db.Model):
         self.email = email
 
 
-class Posts(db.Model):
+class Post(db.Model):
+    __tablename__ = 'posts'
     pid = db.Column(db.Integer, primary_key=True, autoincrement=True)
     title = db.Column(db.String(100))
     description = db.Column(db.String(1000))
-    puid = db.Column(db.Integer, db.ForeignKey('user.uid'))
+    puid = db.Column(db.Integer, db.ForeignKey('users.uid'))
 
     def __init__(self, title, description, puid):
         self.title = title

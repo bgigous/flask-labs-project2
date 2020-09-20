@@ -1,6 +1,6 @@
 from flask import Flask, request, session, redirect, url_for, render_template, flash, jsonify
 
-from . models import User, Posts, db
+from . models import User, Post, db
 from . forms import AddPostForm, SignUpForm, SignInForm, AboutUserForm
 
 from blogger import app
@@ -14,7 +14,7 @@ def index():
 @app.route('/posts')
 def show_posts():
     if session['user_available']:
-        posts = Posts.query.all()
+        posts = Post.query.all()
         user = User.query.all()
         return render_template('posts.html', posts=posts, user=user)
     flash('User is not Authenticated')
@@ -27,7 +27,7 @@ def add_post():
         blogpost = AddPostForm(request.form)
         us = User.query.filter_by(username=session['current_user']).first()
         if request.method == 'POST':
-            bp = Posts(blogpost.title.data, blogpost.description.data, us.uid)
+            bp = Post(blogpost.title.data, blogpost.description.data, us.uid)
             db.session.add(bp)
             db.session.commit()
             return redirect(url_for('show_posts'))
@@ -39,7 +39,7 @@ def add_post():
 @app.route('/delete/<pid>/<post_owner>', methods=('GET', 'POST'))
 def delete_post(pid, post_owner):
     if session['current_user'] == post_owner:
-        me = Posts.query.get(pid)
+        me = Post.query.get(pid)
         db.session.delete(me)
         db.session.commit()
         return redirect(url_for('show_posts'))
@@ -50,10 +50,10 @@ def delete_post(pid, post_owner):
 @app.route('/update/<pid>/<post_owner>', methods=('GET', 'POST'))
 def update_post(pid, post_owner):
     if session['current_user'] == post_owner:
-        me = Posts.query.get(pid)
+        me = Post.query.get(pid)
         blogpost = AddPostForm(obj=me)
         if request.method == 'POST':
-            bpost = Posts.query.get(pid)
+            bpost = Post.query.get(pid)
             bpost.title = blogpost.title.data
             bpost.description = blogpost.description.data
             db.session.commit()
@@ -109,7 +109,7 @@ def logout():
 
 @app.route('/blog/api/v0.1/posts', methods=['GET'])
 def get_tasks():
-    posts = Posts.query.all()
+    posts = Post.query.all()
     """for i in api_posts:
         title= i.title
         description = i.description
