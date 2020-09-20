@@ -23,8 +23,12 @@ To get started with this lab:
   ```
 
 - Windows
-  ```
-  (Coming soon)
+  ```powershell
+  python3 -m venv env
+  env\Scripts\activate.bat
+  pip install -r requirements
+  # run the app
+  python app.py
   ```
 
 ### 0. Wha...?
