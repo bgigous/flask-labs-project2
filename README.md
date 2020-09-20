@@ -10,6 +10,8 @@ ___
 
 ## Instructions
 
+In this lab, you will create add a relationship between existing models and modifying the code to utilize it.
+
 (For extra practice, you can try using Flask-Migrate, but this is not required.)
 
 ### Getting Started
@@ -44,7 +46,9 @@ user_posts = user.posts # access user's posts as Post objects
 user1 = post.user # with a Post object, you can get the user who posted it
 ```
 
-When loading the data for related items, specify that queries are returned instead. Hint: This is an option when defining the relationship.
+When loading the data for related items, specify that queries are returned instead. Hint: This is an option when defining the relationship!
+
+Another hint: Use `from blogger.models import db` to manipulate the database from a Flask shell session. You can also create and register a shell context processor so you don't have to type that every time you enter a shell session.
 
 ### 2. Clean Up The Code
 
