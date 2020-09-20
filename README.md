@@ -44,4 +44,4 @@ You will separate out the project into three blueprints:
 
 ### 2. Create The Application Factory
 
-To make the best use of those blueprints, you'll want to register within an application factory. Create this application factory and initialize your app within it. For this lab, you can pass no arguments to the app factory, and put any configuration within the app factory.
+To make the best use of those blueprints, you'll want to register them within an application factory. Create this application factory and initialize your app within it. For this lab, you can pass no arguments to the app factory, and put any configuration within the app factory.
