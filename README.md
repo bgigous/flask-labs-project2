@@ -10,7 +10,7 @@ ___
 
 ## Instructions
 
-In this lab, you will create a few blueprints and register them within an application factory.
+In this lab, you will create a few blueprints and register them within an application factory. You can, if you choose, copy your solution from the previous lab.
 
 ### Getting Started
 
