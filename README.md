@@ -22,6 +22,14 @@ To get started with this lab:
   ```bash
   python3 -m venv env
   . env/bin/activate
+  pip install -r requirements
+  export FLASK_APP app.py
+  # optional
+  export FLASK_APP app.py
+  # optional
+  export FLASK_DEBUG 1
+  # run the app
+  flask run
   ```
 
 - Windows
@@ -29,8 +37,13 @@ To get started with this lab:
   python3 -m venv env
   env\Scripts\activate.bat
   pip install -r requirements
+  set FLASK_APP=app.py
+  # optional
+  set FLASK_ENV=development
+  # optional
+  set FLASK_DEBUG=1
   # run the app
-  python app.py
+  flask run
   ```
 
 ### 0. Wha...?
