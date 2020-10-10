@@ -12,6 +12,8 @@ ___
 
 ## Instructions
 
+**Read everything before you start!**
+
 In this lab, you will implement password hashing and add Flask-Login to the app. You can, if you choose, copy your solution from the previous lab.
 
 ### Getting Started
@@ -22,12 +24,12 @@ To get started with this lab:
   ```bash
   python3 -m venv env
   . env/bin/activate
-  pip install -r requirements
-  export FLASK_APP app.py
+  pip install -r requirements.txt
+  export FLASK_APP=app.py
   # optional
-  export FLASK_APP app.py
+  export FLASK_ENV=development
   # optional
-  export FLASK_DEBUG 1
+  export FLASK_DEBUG=1
   # run the app
   flask run
   ```
@@ -36,7 +38,7 @@ To get started with this lab:
   ```powershell
   python3 -m venv env
   env\Scripts\activate.bat
-  pip install -r requirements
+  pip install -r requirements.txt
   set FLASK_APP=app.py
   # optional
   set FLASK_ENV=development
@@ -45,6 +47,8 @@ To get started with this lab:
   # run the app
   flask run
   ```
+
+You can also use the included VSCode launch configuration in .vscode/launch.json, after you open this lab as a folder in VSCode.
 
 ### 1. Add Password Security
 
